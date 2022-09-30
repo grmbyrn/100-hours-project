@@ -1,0 +1,33 @@
+<%- include('partials/header') -%>
+
+    <div>
+        <div>
+            <div>
+                <div>
+                    <p><strong>User Name</strong>: <%= user.userName %></p>
+                    <p><strong>Email</strong>: <%= user.email %></p>
+                </div>
+            </div>
+            <div>
+                <h2>Add a post</h2>
+                <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title">
+                    </div>
+                    <div>
+                        <label for="caption">Caption</label>
+                        <input type="text" name="caption" id="caption">
+                    </div>
+                    <button type="submit" value="Upload">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a href="/feed">Return to Feed</a>
+    </div>
+
+    <a href="/logout">Logout</a>
+
+<%- include('partials/footer') -%>
