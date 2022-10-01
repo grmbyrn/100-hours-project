@@ -11,7 +11,7 @@ const logger = require("morgan");
 const PORT = 2000
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-// const postRoutes = require('./routes/posts')
+const postRoutes = require('./routes/posts')
 
 //Use .env file in config folder
 require('dotenv').config({path: './config/.env'})
@@ -48,6 +48,6 @@ app.use(flash())
 
 // ADD ROUTES HERE
 app.use('/', mainRoutes)
-// app.use('/post', postRoutes)
+app.use('/post', postRoutes)
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}, you better catch it!`))  

@@ -16,5 +16,26 @@ module.exports = {
         } catch (error) {
             console.log(err)
         }
+    },
+    getPost: async (req, res) => {
+        try {
+            const post = await Post.findById(req.params.id)
+            res.render('post.ejs', {post: post, user: req.user})
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    createPost: async (req, res) => {
+        try {
+            await Post.create({
+                title: req.body.title,
+                caption: req.body.caption,
+                user: req.user.id
+            })
+            console.log('Post has been added')
+            res.redirect('/profile')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
