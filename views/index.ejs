@@ -1,7 +1,79 @@
-<%- include('partials/header') -%>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class="index-header">
+        <nav class="index-nav">
+            <div>
+                <h1 class=""><a href="/profile">Homework App</a></h1>
+            </div>
+            <div>
+                <a href="/login" class="btn btn-login"> Login</a>
+                <a href="/signup" class="btn btn-signup"> Signup</a>
+            </div>
+        </nav>
+    </header>
 
-    <h1>Create Your VERY OWN Todolist!</h1>
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+    <section class="index-hero">
+        <div>
+            <img src="/img/marvin-meyer-SYTO3xs06fU-unsplash.jpg" alt="">
+        </div>
+        <div>
+            <h1>Make remote work</h1>
+            <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
+            <a href="/login" class="btn btn-login">Login</a>
+            <a href="/signup" class="btn btn-signup">Signup</a>
+        </div>
+    </section>
 
-<%- include('partials/footer') -%>
+    <section class="index-statistics">
+        <div>
+            <h3>2K+</h3>
+            <div>companies</div>
+        </div>
+        <div>
+            <h3>8</h3>
+            <div>languages</div>
+        </div>
+        <div>
+            <h3>1.2M</h3>
+            <div>documents shared</div>
+        </div>
+    </section>
+
+    <section class="index-testimonial">
+        <div>
+            <img src="/img/itay-verchik-6ZKGBzrDd3I-unsplash.jpg" alt="">
+        </div>
+        <div>
+            <h3>It just works!</h3>
+            <p>"I really like how it is an all-in-one solution that allows the entire team to be on the same page. I can share material for a project and feel confident that everyone will receive it. This thing is a miracle worker."</p>
+            <h4>Martin Villar</h4>
+        </div>
+    </section>
+
+    <section class="index-testimonial">
+        <div>
+            <h3>It just works!</h3>
+            <p>"It used to be difficult to keep track of the material that I would give to students. Students might be absent from class or lose the handouts, but now they have no excuse. Everything is in one place, there is class time to dedicate to learning, and my life is much easier."</p>
+            <h4>Olivia Shaw</h4>
+        </div>
+        <div>
+            <img src="/img/michael-dam-mEZ3PoFGs_k-unsplash.jpg" alt="">
+        </div>
+    </section>
+
+    </body>
+</html>

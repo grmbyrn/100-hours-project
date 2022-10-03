@@ -1,9 +1,10 @@
+const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post')
 
 module.exports = {
     getProfile: async (req, res) => {
         try {
-          const posts = await Post.find({ user: req.user.id });
+          const posts = await Post.find({ user: req.user._id });
           res.render("profile.ejs", { posts: posts, user: req.user });
         } catch (err) {
           console.log(err);
@@ -27,8 +28,12 @@ module.exports = {
     },
     createPost: async (req, res) => {
         try {
+            const result = await cloudinary.uploader.upload(req.file.path)
+
             await Post.create({
                 title: req.body.title,
+                image: result.secure_url,
+                cloudinaryId: result.public_id,
                 caption: req.body.caption,
                 user: req.user.id
             })
@@ -36,6 +41,20 @@ module.exports = {
             res.redirect('/profile')
         } catch (error) {
             console.log(error)
+        }
+    },
+    deletePost: async (req, res) => {
+        try {
+            // Find post by id
+            let post = await Post.findById({ _id: req.params.id })
+            // Delete image from cloudinary
+            await cloudinary.uploader.destroy(post.cloudinaryId)
+            // Delete post from db
+            await Post.remove({ _id: req.params.id })
+            console.log('Deleted Post')
+            res.redirect('/profile')
+        } catch (error) {
+            res.redirect('profile')
         }
     }
 }

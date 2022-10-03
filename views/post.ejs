@@ -1,8 +1,17 @@
 <%- include('partials/header') -%>
 
 <div>
+    <img src="<%= post.image%>" alt="">
     <h2><%= post.title %></h2>
     <p><%= post.caption %></p>
+</div>
+
+<div>
+    <% if(post.user == user.id) { %>
+        <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+            <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        </form>
+    <%}%>
 </div>
 
 <div>
