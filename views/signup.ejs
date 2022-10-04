@@ -1,11 +1,23 @@
-<%- include('partials/header') -%>
-
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
-
-<%- include('partials/footer') -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Document</title>
+</head>
+<body class="signup-body">
+    <section class="signup-form-section">
+        <form action="/signup" method="POST" class="signup-form">
+            <input type="text" name="userName" placeholder="User Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="confirmPassword" placeholder="Confirm Password">
+            <input type="submit" class="submit-btn">
+        </form>
+        <h3>Do you already have an account?</h3>
+        <a href="/login" class="btn btn-signup btn-hero-signup">Log in</a>
+    </section>
+</body>
+</html>

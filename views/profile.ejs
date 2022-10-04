@@ -1,37 +1,61 @@
 <%- include('partials/header') -%>
 
     <div>
-        <div>
+        <div class="profile-header">
             <div>
-                <div>
-                    <p><strong>User Name</strong>: <%= user.userName %></p>
-                    <p><strong>Email</strong>: <%= user.email %></p>
-                </div>
+                <img src="/img/logo.svg" alt="">
             </div>
             <div>
-                <h2>Add a post</h2>
-                <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-                    <div>
+                <p><strong>User Name</strong>: <%= user.userName %></p>
+                <p><strong>Email</strong>: <%= user.email %></p>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="profile-form-content">
+                <form action="/post/createPost" enctype="multipart/form-data" method="POST" class="profile-form">
+                    <h2>Add a post:</h2>
+                    <div class="profile-form-input">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title">
                     </div>
-                    <div>
+                    <div class="profile-form-input">
                         <label for="caption">Caption</label>
-                        <textarea type="text" name="caption" id="caption"></textarea>
+                        <textarea type="text" name="caption" id="caption" rows="5"></textarea>
                     </div>
-                    <div>
+                    <div class="profile-form-input file-input">
                         <label for="imgUpload">Image</label>
-                        <input type="file" id="imageUpload" name="file">
+                        <input type="file" id="imageUpload" name="file" class="file">
                     </div>
-                    <button type="submit" value="Upload">Submit</button>
+                    <button type="submit" value="Upload" class="submit-btn">Submit</button>
                 </form>
+                <div class="profile-options">
+                    <a href="/feed">Go to Feed</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+            <div class="profile-posts">
+                <ul class="parent">
+                    <% for(let i = 0; i < posts.length; i++){%>
+                        <li>
+                            <a href="/post/<%= posts[i]._id%>">
+                                <img class="child" src="<%= posts[i].image%>" alt="">
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
             </div>
         </div>
     </div>
-    <div>
-        <a href="/feed">Return to Feed</a>
-    </div>
-
-    <a href="/logout">Logout</a>
+    <footer class="index-header">
+        <nav class="index-nav">
+            <div>
+                <img src="/img/logo.svg" alt="">
+            </div>
+            <div>
+                <a href="/profile" class="btn btn-login">Return to Profile</a>
+                <a href="/feed" class="btn btn-login">Return to Feed</a>
+            </div>
+        </nav>
+    </footer>
 
 <%- include('partials/footer') -%>

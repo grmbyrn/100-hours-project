@@ -4,7 +4,7 @@ const Post = require('../models/Post')
 module.exports = {
     getProfile: async (req, res) => {
         try {
-          const posts = await Post.find({ user: req.user._id });
+          const posts = await Post.find({ user: req.user.id });
           res.render("profile.ejs", { posts: posts, user: req.user });
         } catch (err) {
           console.log(err);
@@ -13,7 +13,7 @@ module.exports = {
     getFeed: async (req, res) => {
         try {
             const posts = await Post.find().sort({createdAt: 'desc'}).lean()
-            res.render('feed.ejs', {posts: posts})
+            res.render('feed.ejs', {posts: posts, user: req.user})
         } catch (error) {
             console.log(err)
         }
@@ -43,6 +43,20 @@ module.exports = {
             console.log(error)
         }
     },
+    likePost: async (req, res) => {
+        try {
+            await Post.findOneAndUpdate(
+                { _id: req.params.id },
+                {
+                    $inc: {likes: 1}
+                }
+            )
+            console.log('Likes +1')
+            res.redirect(`/post/${req.params.id}`)
+        } catch (error) {
+            console.log(error)
+        }
+    },
     deletePost: async (req, res) => {
         try {
             // Find post by id
@@ -52,9 +66,9 @@ module.exports = {
             // Delete post from db
             await Post.deleteOne({ _id: req.params.id })
             console.log('Deleted Post')
-            res.redirect('/profile')
+            res.redirect('/feed')
         } catch (error) {
-            res.redirect('/profile')
+            res.redirect('/feed')
         }
     }
 }
