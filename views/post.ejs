@@ -8,7 +8,10 @@
 
 <div>
     <% if(post.user == user.id) { %>
-        <form action="/post/deletePost/<%= post.id %>?_method=DELETE" method="POST">
+        <form 
+            action="/post/deletePost/<%= post.id %>?_method=DELETE" 
+            method="POST"
+        >
             <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
     <%}%>
