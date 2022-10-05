@@ -354,10 +354,16 @@ select {
 
 .feed-header a:hover{
   text-decoration: underline;
-  color: #F8F0E3;
+  color: #597199;
 }
 
 .post-container{
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 4rem;
+}
+
+.post-container-top{
   display: flex;
 }
 
@@ -376,19 +382,72 @@ select {
   width: 35%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   background-color: #597199;
+  color: #FFFFFF;
 }
 
 .post-icons{
   display: flex;
+  align-items: flex-start;
+  margin-top: 4rem;
+  gap: 8rem;
+}
+
+.fa{
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.fa:hover{
+  color: #1D306D;
+}
+
+/* Comment */
+
+.comment-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2rem 8rem;
+}
+
+.comment-heading{
+  color: #1D306D;
+  padding-left: 2.5rem;
+}
+
+.comment-form{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.comment-input{
+  height: 50px;
+  padding-left: 20px;
+}
+
+.comment-box{
+  margin-top: 2rem;
+}
+
+.comment-individual{
+  background-color: #597199;
+  margin-block: 1rem;
+  list-style: none;
+  color: #FFFFFF;
+  padding: 2rem;
 }
 
 /* Footer */
 
 .footer{
-  position: fixed;
-  bottom: 0;
   width: 100%;
 }

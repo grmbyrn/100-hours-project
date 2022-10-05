@@ -12,6 +12,8 @@ const PORT = 2000
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const postRoutes = require('./routes/posts')
+const commentRoutes = require('./routes/comments')
+const settingRoutes = require('./routes/settings')
 
 //Use .env file in config folder
 require('dotenv').config({path: './config/.env'})
@@ -49,5 +51,7 @@ app.use(flash())
 // ADD ROUTES HERE
 app.use('/', mainRoutes)
 app.use('/post', postRoutes)
+app.use('/comment', commentRoutes)
+app.use('/setting', settingRoutes)
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}, you better catch it!`))  

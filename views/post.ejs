@@ -9,34 +9,55 @@
     </h1>
 </div>
 <div class="post-container">
-    <div class="post-container-img">
-        <img src="<%= post.image%>" alt="">
-    </div>
-    <div class="post-container-text">
-        <h2><%= post.title %></h2>
-        <p><%= post.caption %></p>
-        <div class="post-icons">
-            <div>
-                <form action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
-                    <button class="fa fa-thumbs-up" type="submit"></button>
-                </form>
-                <% if(post.likes > 0){%>
-                <h3>Likes: <%= post.likes %></h3>
-            <% } %>
-            </div>
-            <div>
-                <% if(post.user == user.id) { %>
-                    <form 
-                        action="/post/deletePost/<%= post.id %>?_method=DELETE" 
-                        method="POST"
-                    >
-                        <button class="btn btn-primary fa fa-trash" type="submit"></button>
+    <div class="post-container-top">
+        <div class="post-container-img">
+            <img src="<%= post.image%>" alt="">
+        </div>
+        <div class="post-container-text">
+            <h2><%= post.title %></h2>
+            <p><%= post.caption %></p>
+            <div class="post-icons">
+                <div>
+                    <form action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">
+                        <button class="fa fa-thumbs-up" type="submit"></button>
                     </form>
-                <%}%>
+                    <% if(post.likes > 0){%>
+                    <h3>Likes: <%= post.likes %></h3>
+                <% } %>
+                </div>
+                <div>
+                    <% if(post.user == user.id) { %>
+                        <form 
+                            action="/post/deletePost/<%= post.id %>?_method=DELETE" 
+                            method="POST"
+                        >
+                            <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                        </form>
+                    <%}%>
+                </div>
             </div>
         </div>
     </div>
+    <div class="comment-container">
+        <h2 class="comment-heading">Add a comment</h2>
+        <form action="/comment/createComment/<%=post._id%>" method="POST">
+            <div class="comment-form">
+                <input type="text" id="comment" name="comment" placeholder="Comment" class="comment-input">
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+        <div>
+            <ul class="comment-box">
+                <% for(let i = 0; i < comments.length; i++){ %>
+                    <li class="comment-individual">
+                        <%= comments[i].comment%>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 </div>
+
 
 <footer class="index-header footer">
     <nav class="index-nav">
