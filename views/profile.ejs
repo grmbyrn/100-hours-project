@@ -11,8 +11,10 @@
                 <p><strong>Email</strong>: <%= user.email %></p>
             </div>
         </div>
-        <div>
-            <h2 class="page-title">Your Profile</h2>
+        <div class="page-title">
+            <h2>Your Profile</h2>
+            <a href="/feed" class="page-subtitle">Your Feed</a>
+            <a href="/favourites" class="page-subtitle">Your Favourites</a>
         </div>
         <div class="profile-content">
             <div class="profile-form-content">
@@ -25,6 +27,10 @@
                     <div class="profile-form-input">
                         <label for="caption">Caption</label>
                         <textarea type="text" name="caption" id="caption" rows="5"></textarea>
+                    </div>
+                    <div class="profile-form-input">
+                        <label for="rating">Rating</label>
+                        <input type="number" name="rating" id="rating" min="1" max="5">
                     </div>
                     <div class="profile-form-input file-input">
                         <label for="imageUpload" class="image-wrapper">

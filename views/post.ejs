@@ -17,6 +17,22 @@
         <div class="post-container-text">
             <h2><%= post.title %></h2>
             <p><%= post.caption %></p>
+            <% if(post.rating === 1) { %>
+                <p>⭐</p>
+            <% } %>
+            <% if(post.rating === 2) { %>
+                <p>⭐⭐</p>
+            <% } %>
+            <% if(post.rating === 3) { %>
+                <p>⭐⭐⭐</p>
+            <% } %>
+            <% if(post.rating === 4) { %>
+                <p>⭐⭐⭐⭐</p>
+            <% } %>
+            <% if(post.rating === 5) { %>
+                <p>⭐⭐⭐⭐⭐</p>
+            <% } %>
+            
             <div class="post-icons">
                 <div class="post-icons-like">
                     <form action="/post/likePost/<%= post.id %>?_method=PUT" method="POST">

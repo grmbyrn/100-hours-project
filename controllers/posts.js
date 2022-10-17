@@ -6,7 +6,7 @@ const Favourite = require('../models/Favourite')
 module.exports = {
     getProfile: async (req, res) => {
         try {
-          const posts = await Post.find({ user: req.user.id });
+          const posts = await Post.find({ user: req.user.id }).sort({createdAt: 'desc'}).lean();
           res.render("profile.ejs", { posts: posts, user: req.user });
         } catch (err) {
           console.log(err);
@@ -48,7 +48,8 @@ module.exports = {
                 image: result.secure_url,
                 cloudinaryId: result.public_id,
                 caption: req.body.caption,
-                user: req.user.id
+                user: req.user.id,
+                rating: req.body.rating
             })
             console.log('Post has been added')
             res.redirect('/profile')
