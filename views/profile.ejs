@@ -2,13 +2,17 @@
 
     <div>
         <div class="profile-header">
-            <div>
+            <div class="index-title">
                 <img src="/img/logo.svg" alt="">
+                <h1>Reading Recs</h1>
             </div>
             <div>
                 <p><strong>User Name</strong>: <%= user.userName %></p>
                 <p><strong>Email</strong>: <%= user.email %></p>
             </div>
+        </div>
+        <div>
+            <h2 class="page-title">Your Profile</h2>
         </div>
         <div class="profile-content">
             <div class="profile-form-content">
@@ -23,14 +27,16 @@
                         <textarea type="text" name="caption" id="caption" rows="5"></textarea>
                     </div>
                     <div class="profile-form-input file-input">
-                        <label for="imgUpload">Image</label>
-                        <input type="file" id="imageUpload" name="file" class="file">
+                        <label for="imageUpload" class="image-wrapper">
+                            <i class="plus-icon fa fa-plus" aria-hidden="true"></i>
+                        </label>
+                        <input type="file" id="imageUpload" name="file" class="file" style="display: none;">
                     </div>
                     <button type="submit" value="Upload" class="submit-btn">Submit</button>
                 </form>
                 <div class="profile-options">
                     <a href="/feed">Go to Feed</a>
-                    <a href="/setting">Go to Settings</a>
+                    <a href="/favourites">Favourites</a>
                     <a href="/logout">Logout</a>
                 </div>
             </div>
@@ -47,16 +53,5 @@
             </div>
         </div>
     </div>
-    <footer class="index-header">
-        <nav class="index-nav">
-            <div>
-                <img src="/img/logo.svg" alt="">
-            </div>
-            <div>
-                <a href="/profile" class="btn btn-login">Return to Profile</a>
-                <a href="/feed" class="btn btn-login">Return to Feed</a>
-            </div>
-        </nav>
-    </footer>
 
 <%- include('partials/footer') -%>

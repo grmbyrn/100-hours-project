@@ -3,12 +3,16 @@
 <div>
     <div>
         <div class="feed-header">
-            <div>
+            <div class="index-title">
                 <img src="/img/logo.svg" alt="">
+                <h1>Reading Recs</h1>
             </div>
             <h1>
                 <a href="/profile"><%= user.userName %>'s Profile</a>
             </h1>
+        </div>
+        <div class="page-title">
+            <h2>Your Feed</h2>
         </div>
         <ul class="parent">
             <% for(let i = 0; i < posts.length; i++) {%>
@@ -21,17 +25,5 @@
         </ul>
     </div>
 </div>
-
-<footer class="index-header">
-    <nav class="index-nav">
-        <div>
-            <img src="/img/logo.svg" alt="">
-        </div>
-        <div>
-            <a href="/profile" class="btn btn-login">Return to Profile</a>
-            <a href="/feed" class="btn btn-login">Return to Feed</a>
-        </div>
-    </nav>
-</footer>
 
 <%- include('partials/footer') -%>

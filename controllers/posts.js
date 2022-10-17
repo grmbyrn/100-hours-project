@@ -1,6 +1,7 @@
 const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post')
 const Comment = require('../models/Comment')
+const Favourite = require('../models/Favourite')
 
 module.exports = {
     getProfile: async (req, res) => {
@@ -17,6 +18,16 @@ module.exports = {
             res.render('feed.ejs', {posts: posts, user: req.user})
         } catch (error) {
             console.log(err)
+        }
+    },
+    getFavorites: async (req, res) => { 
+        try {
+          const posts = await Favourite.find({ user: req.user.id }).populate('post').sort({createdAt: 'desc'}).lean()
+    
+          //Sending post data from mongodb and user data to ejs template
+          res.render("favourites.ejs", { posts: posts, user: req.user });
+        } catch (error) {
+          console.log(error);
         }
     },
     getPost: async (req, res) => {
@@ -41,6 +52,18 @@ module.exports = {
             })
             console.log('Post has been added')
             res.redirect('/profile')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    favouritePost: async (req, res) => {
+        try {
+            await Favourite.create({
+                user: req.user.id,
+                post: req.params.id
+            })
+            console.log('Favourite has been added!')
+            res.redirect(`/post/${req.params.id}`)
         } catch (error) {
             console.log(error)
         }
