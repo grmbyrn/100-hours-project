@@ -94,9 +94,9 @@ module.exports = {
             // Delete post from db
             await Post.deleteOne({ _id: req.params.id })
             console.log('Deleted Post')
-            res.redirect('/feed')
+            res.redirect('/profile')
         } catch (error) {
-            res.redirect('/feed')
+            res.redirect('/profile')
         }
     }
 }
