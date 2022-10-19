@@ -5,6 +5,14 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  author: {
+    type: String,
+    required: true,
+  },
+  shouldIRead: {
+    type: String,
+    required: true
+  },
   image: {
     type: String,
     require: true

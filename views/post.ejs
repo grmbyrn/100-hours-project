@@ -5,9 +5,7 @@
         <img src="/img/logo.svg" alt="">
         <h1>Reading Recs</h1>
     </div>
-    <h1>
-        <a href="/profile"><%= user.userName %>'s Profile</a>
-    </h1>
+        <a href="/profile" class="index-link"><%= user.userName %>'s Profile</a>
 </div>
 <div class="post-container">
     <div class="post-container-top">
@@ -16,22 +14,29 @@
         </div>
         <div class="post-container-text">
             <h2><%= post.title %></h2>
-            <p><%= post.caption %></p>
-            <% if(post.rating === 1) { %>
-                <p>⭐</p>
-            <% } %>
-            <% if(post.rating === 2) { %>
-                <p>⭐⭐</p>
-            <% } %>
-            <% if(post.rating === 3) { %>
-                <p>⭐⭐⭐</p>
-            <% } %>
-            <% if(post.rating === 4) { %>
-                <p>⭐⭐⭐⭐</p>
-            <% } %>
-            <% if(post.rating === 5) { %>
-                <p>⭐⭐⭐⭐⭐</p>
-            <% } %>
+            <div class="post-container-rec">
+                <h4>Should I Read It?</h4>
+                <p><%= post.shouldIRead %></p>
+            </div>
+            <div class="post-container-explanation">
+                <h4>Why Should I Read It?</h4>
+                <p><%= post.caption %></p>
+                <% if(post.rating === 1) { %>
+                    <p>⭐</p>
+                <% } %>
+                <% if(post.rating === 2) { %>
+                    <p>⭐⭐</p>
+                <% } %>
+                <% if(post.rating === 3) { %>
+                    <p>⭐⭐⭐</p>
+                <% } %>
+                <% if(post.rating === 4) { %>
+                    <p>⭐⭐⭐⭐</p>
+                <% } %>
+                <% if(post.rating === 5) { %>
+                    <p>⭐⭐⭐⭐⭐</p>
+                <% } %>
+            </div>
             
             <div class="post-icons">
                 <div class="post-icons-like">

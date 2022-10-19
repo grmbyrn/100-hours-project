@@ -208,7 +208,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-inline: 4rem;
 }
 
@@ -402,6 +402,8 @@ select {
   color: #597199;
 }
 
+/* Post */
+
 .post-container{
   display: flex;
   flex-direction: column;
@@ -432,6 +434,18 @@ select {
   background-color: #597199;
   color: #FFFFFF;
   padding: 30px 20px;
+}
+
+.post-container-rec{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.post-container-explanation{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .post-icons{
@@ -534,4 +548,78 @@ select {
 .fa-brands:hover,
 .fa-brands:active{
   color: #597199;
+}
+
+
+/* Media Quieries */
+
+@media (max-width: 768px){
+  /* INDEX HERO */
+  .index-hero{
+    width: 100%;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .index-hero img{
+    width: 100%;
+  }
+
+  .index-testimonial{
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-inline: .5rem;
+  }
+
+  /* HEADER */
+  .index-title > h1,
+  .index-link{
+    font-size: 20px;
+  }
+
+  /* PROFILE */
+  .parent {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  /* FEED */
+  .feed-grid{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  /* POST */
+  .post-container-top{
+    flex-direction: column;
+    background-color: black;
+  }
+
+  .post-container-img{
+    width: 100%;
+  }
+
+  .post-container-text{
+    width: 100%;
+  }
+
+  /* COMMENT */
+
+  .comment-container{
+    min-width: 200px;
+    margin: 0 auto;
+  }
+
+  .comment-heading{
+    padding-left: 0;
+    text-align: center;
+  }
+
+  /* FOOTER */
+
+  .internal-footer{
+    display: flex;
+    font-size: 25px;
+    gap: 10px;
+  }
 }
