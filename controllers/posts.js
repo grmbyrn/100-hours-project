@@ -98,5 +98,12 @@ module.exports = {
         } catch (error) {
             res.redirect('/profile')
         }
+    },
+    getBook: async (req, res) => {
+        try {
+            res.render('chooseBook.ejs')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
