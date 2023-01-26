@@ -16,6 +16,9 @@ const commentRoutes = require('./routes/comments')
 //Use .env file in config folder
 require('dotenv').config({path: './config/.env'})
 
+// mongoose settings
+mongoose.set('strictQuery', false)
+
 // Passport config
 require("./config/passport")(passport);
 
